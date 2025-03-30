@@ -1,3 +1,58 @@
+// src/components/Sidebar.jsx
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import {
+  FaGlobe,
+  FaBriefcase,
+  FaFlask,
+  FaBeer,
+  FaFootballBall,
+  FaLaptop,
+  FaHeartbeat,
+} from 'react-icons/fa';
+
+function Sidebar() {
+  const links = [
+    { to: '/', label: 'General', icon: <FaGlobe size={16} /> }, // Home route points to "/"
+    { to: '/sports', label: 'Sports', icon: <FaFootballBall size={16} /> },
+    { to: '/health', label: 'Health', icon: <FaHeartbeat size={16} /> },
+    { to: '/science', label: 'Science', icon: <FaFlask size={16} /> },
+    { to: '/technology', label: 'Technology', icon: <FaLaptop size={16} /> },
+    { to: '/business', label: 'Business', icon: <FaBriefcase size={16} /> },
+    { to: '/entertainment', label: 'Entertainment', icon: <FaBeer size={16} /> },
+  ];
+  
+  return (
+    <aside className="sidebar">
+      <div>
+        <NavLink to="/" className="sidebar-logo">
+          NewsFlash
+        </NavLink>
+        <nav>
+          <ul>
+            {links.map((link) => (
+              <li key={link.to}>
+                <NavLink
+                  to={link.to}
+                  className={({ isActive }) =>
+                    isActive ? 'active-link sidebar-link' : 'sidebar-link'
+                  }
+                >
+                  {link.icon}
+                  {link.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </aside>
+  );
+}
+
+export default Sidebar;
+
+/*
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {
@@ -51,3 +106,4 @@ function Sidebar() {
 }
 
 export default Sidebar;
+*/

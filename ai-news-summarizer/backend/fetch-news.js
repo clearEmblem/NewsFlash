@@ -19,7 +19,7 @@ dotenv.config({ path: path.join(__dirname, '/Users/akash/Projects/HooHacks/ai-ne
 // require('dotenv').config({ path: '../.env' });
 
 // Categories to fetch
-const CATEGORIES = ['general', 'technology', 'sports', 'entertainment'];
+const CATEGORIES = ['general', 'technology', 'sports', 'entertainment', 'health', 'science'];
 
 const NEWS_API_KEY = process.env.NEWS_API_KEY;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;

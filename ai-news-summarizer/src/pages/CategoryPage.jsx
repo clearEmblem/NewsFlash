@@ -1,3 +1,79 @@
+// src/pages/CategoryPage.jsx
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import NewsCard from '../components/NewsCard';
+import Sidebar from '../components/Sidebar';
+import { motion } from 'framer-motion';
+import axios from 'axios';
+
+function CategoryPage() {
+  // Get category from URL parameter
+  //const { category } = useParams();
+  const params = useParams();
+  const category = params.category || "general";
+  // State to store articles and loading status
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
+  // Fetch articles when component mounts or category changes
+  useEffect(() => {
+    // Set loading to true whenever category changes
+    setLoading(true);
+    
+    // Fetch articles from backend API
+    axios.get(`http://localhost:5001/api/articles/category/${category}`)
+      .then(response => {
+        // Store articles in state
+        setArticles(response.data);
+        // Set loading to false
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error(`Error fetching ${category} news:`, error);
+        setLoading(false);
+      });
+  }, [category]); // Re-run when category changes
+  
+  // Format category for display (capitalize first letter)
+  const displayCategory = category.charAt(0).toUpperCase() + category.slice(1);
+
+  return (
+    <div className="container">
+      <Sidebar />
+      <motion.main
+        className="main-content"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
+        <h1>{displayCategory} News</h1>
+        
+        {/* Show loading message or articles */}
+        {loading ? (
+          <p>Loading {category} news...</p>
+        ) : articles.length > 0 ? (
+          // Map through articles and render NewsCard for each
+          articles.map((article) => (
+            <NewsCard 
+              key={article._id}
+              title={article.title}
+              summary={article.summary}
+              url={article.url}
+            />
+          ))
+        ) : (
+          // Show message if no articles found
+          <p>No articles found for {category}.</p>
+        )}
+      </motion.main>
+    </div>
+  );
+}
+
+export default CategoryPage;
+
+
+/*
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import NewsCard from '../components/NewsCard';
@@ -38,3 +114,4 @@ function CategoryPage() {
 }
 
 export default CategoryPage;
+*/
