@@ -1,1 +1,6 @@
-hfjhjfad
+Things we need to do:
+- get json output from api call (we need to call it somewhere w js )
+- store the content part in a database perhaps
+- call gemini api to summarize the content in a database
+- print the summarized content in the react code
+- figure out a way to refresh every day. or have a button to refresh, and it does it all. 
