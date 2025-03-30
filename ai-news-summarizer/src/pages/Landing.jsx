@@ -22,7 +22,7 @@ function Landing() {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <div className="landing-logo">NewsFlash</div>
+        <Link to="/" className="landing-logo">NewsFlash</Link>
 
         <div className="landing-title">
           <span className="landing-typewriter-label">Stay Informed,</span>
@@ -42,9 +42,10 @@ function Landing() {
           We aggregate news from trustworthy sources, summarize it using AI, and serve it up in a clean, unbiased format — daily.
         </p>
 
-        <Link to="/news" className="cta-button">
-          Get Started →
-        </Link>
+        <Link to="/news/General" className="cta-button">
+  Explore →
+</Link>
+
       </motion.div>
     </div>
   );
