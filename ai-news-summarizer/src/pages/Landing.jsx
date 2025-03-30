@@ -24,6 +24,9 @@ function Landing() {
       >
         <Link to="/" className="landing-logo">NewsFlash</Link>
 
+        {/* ⬇️ Divider line */}
+        <div className="landing-divider" />
+
         <div className="landing-title">
           <span className="landing-typewriter-label">Stay Informed,</span>
           <br />
@@ -43,9 +46,8 @@ function Landing() {
         </p>
 
         <Link to="/news/General" className="cta-button">
-  Explore →
-</Link>
-
+          Explore →
+        </Link>
       </motion.div>
     </div>
   );
