@@ -31,7 +31,7 @@ async function fetchNewsByCategory(newscategory) {
         category: newscategory,
         pageSize: 4, 
         //apiKey: NEWS_API_KEY
-        apiKey: "7c7b309731ee471baabd2964115e3198"
+        apiKey: "INSERT-API-KEY"
       }
     });
     
@@ -46,7 +46,7 @@ async function generateSummary(title, description) {
     try {
       // Direct API call using axios
       const response = await axios.post(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyDUXMvBYHWk6nUtMXktt5a_OcqEmfxD9HM`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=INSERT-API-KEY`,
         {
           contents: [
             {
