@@ -45,7 +45,7 @@ function Landing() {
           We aggregate news from trustworthy sources, summarize it using AI, and serve it up in a clean, unbiased format — daily.
         </p>
 
-        <Link to="/news/General" className="cta-button">
+        <Link to="/General" className="cta-button">
           Explore →
         </Link>
       </motion.div>

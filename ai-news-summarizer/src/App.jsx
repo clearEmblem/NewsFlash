@@ -1,23 +1,27 @@
 
 // src/App.jsx
 // src/App.jsx
+// src/App.jsx
 import React from "react";
-import { Routes, Route } from "react-router-dom"; // Remove BrowserRouter import
+import { Routes, Route } from "react-router-dom"; // Note: No BrowserRouter here
 import CategoryPage from "./pages/CategoryPage";
+import Landing from "./pages/Landing";
 import "./index.css";
 
 function App() {
   return (
-    // Remove the BrowserRouter wrapper
     <Routes>
-      {/* Home route - redirects to CategoryPage with "general" as default */}
-      <Route path="/" element={<CategoryPage key="home-general" />} />
+      {/* Home/landing route */}
+      <Route path="/" element={<Landing />} />
       
-      {/* Category routes */}
+      {/* News routes */}
       <Route path="/general" element={<CategoryPage />} />
       <Route path="/technology" element={<CategoryPage />} />
       <Route path="/sports" element={<CategoryPage />} />
       <Route path="/entertainment" element={<CategoryPage />} />
+      <Route path="/business" element={<CategoryPage />} />
+      <Route path="/health" element={<CategoryPage />} />
+      <Route path="/science" element={<CategoryPage />} />
       
       {/* Catch-all for other categories */}
       <Route path="/:category" element={<CategoryPage />} />
