@@ -65,7 +65,7 @@ body {
 
 .active-link {
   color: var(--sidebar-accent);
-  background-color: rgba(64, 0, 184, 0.466);
+  background-color: rgba(64, 0, 184, 0.291);
   border-left: 3px solid var(--sidebar-accent);
 }
 
