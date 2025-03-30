@@ -1,12 +1,22 @@
-// fetchDailyNews.js
-const axios = require('axios');
-const mongoose = require('mongoose');
-const Article = require('./models/Article');
+import Article from './Article.js';
+import axios from 'axios';
+import mongoose from 'mongoose';
+import { GoogleGenAI } from '@google/genai';
+import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-import { GoogleGenAI } from "@google/genai";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+dotenv.config({ path: path.join(__dirname, '/Users/akash/Projects/HooHacks/ai-news-summarizer/.env') });
+
+
+// import { GoogleGenAI } from "@google/genai";
 
 // Specify path to api key
-require('dotenv').config({ path: '../.env' });
+// require('dotenv').config({ path: '../.env' });
 
 // Categories to fetch
 const CATEGORIES = ['general', 'technology', 'sports', 'entertainment'];
@@ -21,7 +31,8 @@ async function fetchNewsByCategory(newscategory) {
       params: {
         category: newscategory,
         pageSize: 4, 
-        apiKey: NEWS_API_KEY
+        //apiKey: NEWS_API_KEY
+        apiKey: "7c7b309731ee471baabd2964115e3198"
       }
     });
     
