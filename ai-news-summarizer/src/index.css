@@ -45,6 +45,7 @@ body {
 }
 
 .sidebar-link {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   gap: 12px;

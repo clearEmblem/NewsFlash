@@ -18,11 +18,13 @@ function CategoryPage() {
   // Fetch articles when component mounts or category changes
   useEffect(() => {
     // Set loading to true whenever category changes
+    console.log("category change to: ", category);
     setLoading(true);
     
     // Fetch articles from backend API
     axios.get(`http://localhost:5001/api/articles/category/${category}`)
       .then(response => {
+        console.log("Data received:", response.data);
         // Store articles in state
         setArticles(response.data);
         // Set loading to false
@@ -57,7 +59,7 @@ function CategoryPage() {
             <NewsCard 
               key={article._id}
               title={article.title}
-              summary={article.summary}
+              description={article.description}
               url={article.url}
             />
           ))
