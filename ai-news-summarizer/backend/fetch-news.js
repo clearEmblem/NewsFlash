@@ -10,7 +10,7 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-dotenv.config({ path: path.join(__dirname, '/Users/akash/Projects/HooHacks/ai-news-summarizer/.env') });
+dotenv.config();
 
 
 // import { GoogleGenAI } from "@google/genai";
@@ -19,11 +19,10 @@ dotenv.config({ path: path.join(__dirname, '/Users/akash/Projects/HooHacks/ai-ne
 // require('dotenv').config({ path: '../.env' });
 
 // Categories to fetch
-const CATEGORIES = ['general', 'technology', 'sports', 'entertainment', 'health', 'science'];
+const CATEGORIES = ['general', 'technology', 'sports', 'business', 'entertainment', 'health', 'science'];
 
 const NEWS_API_KEY = process.env.NEWS_API_KEY;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-
 async function fetchNewsByCategory(newscategory) {
   try {
     // Fetch from NewsAPI
@@ -44,22 +43,41 @@ async function fetchNewsByCategory(newscategory) {
 }
 
 async function generateSummary(title, description) {
-    const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY});
-
-  try {
-    const response = await ai.models.generateContent({
-        model: "gemini-2.0-flash",
-        contents: 
-            `Please create a concise, engaging two-sentence summary of this news article. Title: "${title}" Description: "${description}"`
-});
-    
-    return response.text;
-
-  } catch (error) {
-    console.error('Error generating summary:', error);
-    return description; // Fallback to the original description
+    try {
+      // Direct API call using axios
+      const response = await axios.post(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyDUXMvBYHWk6nUtMXktt5a_OcqEmfxD9HM`,
+        {
+          contents: [
+            {
+              parts: [
+                {
+                  text: `Please create a concise, engaging two-sentence summary of this news article. Title: "${title}" Description: "${description}"`
+                }
+              ]
+            }
+          ]
+        }
+      );
+      
+      // Extract the summary from the response
+      if (response.data && 
+          response.data.candidates && 
+          response.data.candidates[0] && 
+          response.data.candidates[0].content && 
+          response.data.candidates[0].content.parts && 
+          response.data.candidates[0].content.parts[0]) {
+        return response.text;
+      } else {
+        console.warn("Unexpected response structure:", JSON.stringify(response.data));
+        return description || title;
+      }
+    } catch (error) {
+      console.error('Error generating summary:', error);
+      console.error('Error details:', error.response ? error.response.data : 'No response data');
+      return description || title;
+    }
   }
-}
 
 async function updateDatabase() {
   try {
