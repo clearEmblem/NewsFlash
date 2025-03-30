@@ -24,9 +24,7 @@ News recommendation system
 
 ## Team
 
-Akash Palukuri
-Karthik Gadde 
-Joe Laguna 
+Akash Palukuri, Karthik Gadde , Joe Laguna 
 
 
 Built with ❤️ for HooHacks 2024
