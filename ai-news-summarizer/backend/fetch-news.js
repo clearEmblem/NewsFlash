@@ -53,7 +53,7 @@ async function generateSummary(title, description) {
 async function updateDatabase() {
   try {
     // Connect to MongoDB
-    await mongoose.connect('mongodb://localhost:27017/newsaggregator');
+    await mongoose.connect('mongodb+srv://adminJoe:karthikjoeakash@news-cluster.xku1vza.mongodb.net/');
     
     // Process each category
     for (const category of CATEGORIES) {
