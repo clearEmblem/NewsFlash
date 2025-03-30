@@ -13,13 +13,13 @@ import {
 
 function Sidebar() {
   const links = [
-    { to: '/', label: 'General', icon: <FaGlobe size={16} /> }, // Home route points to "/"
-    { to: '/sports', label: 'Sports', icon: <FaFootballBall size={16} /> },
-    { to: '/health', label: 'Health', icon: <FaHeartbeat size={16} /> },
-    { to: '/science', label: 'Science', icon: <FaFlask size={16} /> },
-    { to: '/technology', label: 'Technology', icon: <FaLaptop size={16} /> },
-    { to: '/business', label: 'Business', icon: <FaBriefcase size={16} /> },
-    { to: '/entertainment', label: 'Entertainment', icon: <FaBeer size={16} /> },
+    { to: "/general", label: 'General', icon: <FaGlobe size={16} /> },
+    { to: "/sports", label: 'Sports', icon: <FaFootballBall size={16} /> },
+    { to: "/health", label: 'Health', icon: <FaHeartbeat size={16} /> },
+    { to: "/science", label: 'Science', icon: <FaFlask size={16} /> },
+    { to: "/technology", label: 'Technology', icon: <FaLaptop size={16} /> },
+    { to: "/business", label: 'Business', icon: <FaBriefcase size={16} /> },
+    { to: "/entertainment", label: 'Entertainment', icon: <FaBeer size={16} /> },
   ];
   
   return (
