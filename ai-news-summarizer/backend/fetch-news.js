@@ -3,19 +3,22 @@ const axios = require('axios');
 const mongoose = require('mongoose');
 const Article = require('./models/Article');
 
+// Specify path to api key
+require('dotenv').config({ path: '../.env' });
+
 // Categories to fetch
 const CATEGORIES = ['general', 'technology', 'sports', 'entertainment'];
-const NEWS_API_KEY = 'your-newsapi-key';
-const GEMINI_API_KEY = 'your-gemini-key';
+
+const NEWS_API_KEY = process.env.NEWS_API_KEY;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 async function fetchNewsByCategory(category) {
   try {
     // Fetch from NewsAPI
     const response = await axios.get('https://newsapi.org/v2/top-headlines', {
       params: {
-        country: 'us',
         category: category,
-        pageSize: 3, // 3 articles per category
+        pageSize: 4, // 3 articles per category
         apiKey: NEWS_API_KEY
       }
     });
