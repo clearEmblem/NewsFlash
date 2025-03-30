@@ -1,4 +1,4 @@
-## Newsflash
+# Newsflash
 A modern news aggregation platform delivering essential headlines from diverse trusted sources in one clean, intuitive interface.
 Features
 
@@ -8,25 +8,25 @@ Clean Interface: Minimalist design focused on readability and ease of use
 Original Sources: Direct links to full articles for in-depth reading
 Concise Content: Brief descriptions that capture the essential information
 
-# Technology Stack
+## Technology Stack
 
 Frontend: React, CSS, Framer Motion for animations
 Backend: Node.js, Express
 Database: MongoDB for article storage
 APIs: NewsAPI for content sourcing
 
-# Future Development
+## Future Development
 
 User accounts for personalized news feeds
 Saved article functionality
 Topic-based filtering within categories
 News recommendation system
 
-# Team
+## Team
 
 Akash Palukuri
 Karthik Gadde 
 Joe Laguna 
 
 
-# Built with ❤️ for HooHacks 2024
+Built with ❤️ for HooHacks 2024
