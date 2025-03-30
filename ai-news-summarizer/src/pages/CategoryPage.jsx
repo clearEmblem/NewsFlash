@@ -5,7 +5,7 @@ import NewsCard from '../components/NewsCard';
 import Sidebar from '../components/Sidebar';
 import { motion } from 'framer-motion';
 import axios from 'axios';
-
+//change
 function CategoryPage() {
   // Get category from URL parameter
   //const { category } = useParams();
