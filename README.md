@@ -1,6 +1,7 @@
 # Newsflash
 A modern news aggregation platform delivering essential headlines from diverse trusted sources in one clean, intuitive interface.
-Features
+
+## Features
 
 Daily Updates: Fresh news content refreshed every 24 hours
 Multiple Categories: Browse news across General, Technology, Business, Sports, Entertainment, Health, and Science
