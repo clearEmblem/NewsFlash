@@ -22,9 +22,6 @@ Saved article functionality
 Topic-based filtering within categories
 News recommendation system
 
-## Team
-
-Akash Palukuri, Karthik Gadde , Joe Laguna 
 
 
-## Built for HooHacks 2025
+
